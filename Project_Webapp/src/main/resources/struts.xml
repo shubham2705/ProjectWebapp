@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD  
+Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>  
+  
+<package name="default" extends="struts-default">  
+  
+<action name="adminregister" class="com.bean.Admin_RegisterAction">  
+<result name="success">Admin_register-success.jsp</result>  
+<result name="error">Admin_register-error.jsp</result>  
+</action>  
+
+
+<action name="studentregister" class="com.bean.Student_RegisterAction">  
+<result name="success">Student_register-success.jsp</result>  
+<result name="error">Student_register-error.jsp</result>  
+</action>  
+</package> 
+
+<package name="login" extends="struts-default">  
+<action name="studentloginprocess" class="com.bean.StudentLogin">  
+<result name="success">student-loginsuccess.jsp</result>  
+<result name="error" >student-loginerror.jsp</result>  
+</action>  
+
+<action name="logout" class="com.bean.StudentLogin" method="logout">  
+<result name="success" >studentLogout.jsp</result>  
+</action> 
+
+<action name="adminloginprocess" class="com.bean.AdminLogin">  
+<result name="success">admin-loginsuccess.jsp</result>  
+<result name="error" >admin-loginerror.jsp</result>  
+</action>  
+
+<action name="logout" class="com.bean.AdminLogin" method="logout">  
+<result name="success" >adminLogout.jsp</result>  
+</action>
+
+
+
+
+</package>  
+
+</struts>      
