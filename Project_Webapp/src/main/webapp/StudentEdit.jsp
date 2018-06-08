@@ -10,22 +10,44 @@ body {background-color: lightcyan;}
 </style>
 </head>
 <body>
-<%@page import="com.bean.UserDao,com.bean.User"%>  
+<%@page import="com.dao.UserDAO,com.bean.User"%>  
  <%  
 String ID=request.getParameter("ID");  
-User u=UserDao.getRecordById(Integer.parseInt(ID));  
+User u=UserDAO.getRecordById(Integer.parseInt(ID));  
 %>  
  
+ 
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <h1>Edit Form</h1>  
-<%@ taglib uri="/struts-tags" prefix="s" %>
+<form action="editStudent.jsp" method="post">  
+<input type="hidden" name="ID" value="<%=u.getID() %>"/>  
+<table>  
+<tr><td>FirstName:</td><td>  
+<input type="text" name="FirstName" value="<%= u.getFirstName()%>"/></td></tr>  
+<tr><td>LastName:</td><td>  
+<input type="text" name="LastName" value="<%= u.getLastName()%>"/></td></tr>  
  
-<s:textfield name="FirstName" label="First Name"></s:textfield>  
-<s:textfield name="LastName" label="Last Name"></s:textfield>   
-<s:select cssStyle="width:155px;" list="{'india','pakistan','srilanka', 'bangladesh','nepal','bhutan','other'}" name="country" label="Country"></s:select>
-<s:textfield name="EmailId" label="Email"></s:textfield>  
-<s:password name="Password" label="Password"></s:password>   
+<tr><td>Country:</td><td>  
+<select name="Country">  
+<option>India</option>  
+<option>Pakistan</option>  
+<option>SriLanka</option>  
+<option>Bangladesh</option>  
+<option>Nepal</option> 
+<option>Bhutan</option> 
+<option>Other</option>  
+</select>  
+</td></tr>
+<tr><td>Email:</td><td>  
+<input type="text" name="EmailId" value="<%= u.getEmailId()%>"/></td></tr>  
+  
+<tr><td>Password:</td><td> 
+<input type="password" name="Password" value="<%= u.getPassword()%>"/></td></tr>  
 
-
+<tr><td colspan="2"><input type="submit" value="Edit User"/></td></tr>  
+</table>  
+</form>  
+  
 </body>
 </html>

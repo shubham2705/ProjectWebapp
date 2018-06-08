@@ -3,6 +3,7 @@ package com.bean;
 public class User {
 	private int ID;  
 	private String FirstName,Password,EmailId,LastName,Country;
+	
 	public int getID() {
 		return ID;
 	}
@@ -39,5 +40,7 @@ public class User {
 	public void setCountry(String country) {
 		Country = country;
 	}  
+	
+	
 	
 }

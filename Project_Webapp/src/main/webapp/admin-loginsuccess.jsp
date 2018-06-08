@@ -15,8 +15,6 @@ body {background-color: lightcyan;}
 <p align="center">
 <a href="adminLogout.jsp">Logout</a>  
 <a href="viewDetails.jsp">View Students List</a>
-<a href="StudentEdit.jsp">Edit Details</a>
-<a href="StudentMarks.jsp">Upload Marks</a>
 <a href="Attendance.jsp">Start Attendance</a></p>
 
 </body>

@@ -1,8 +1,8 @@
-package com.bean;
+package com.dao;
 import java.sql.*;  
 import java.util.*;
-import com.bean.User;
-public class UserDao {
+import com.bean.*;
+public class UserDAO {
 	public static Connection getConnection(){  
 	    Connection con=null;  
 	    try{  

@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@page import="com.bean.UserDao"%>  
+<%@page import="com.dao.UserDAO"%>  
 <jsp:useBean id="u" class="com.bean.User"></jsp:useBean>  
 <jsp:setProperty property="*" name="u"/>  
 <%  
-int i=UserDao.delete(u);
+int i=UserDAO.delete(u);
 response.sendRedirect("viewDetails.jsp");
 %>  
 </body>
