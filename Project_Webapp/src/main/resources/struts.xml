@@ -15,9 +15,9 @@ Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <result name="success">Student_register-success.jsp</result>  
 <result name="error">Student_register-error.jsp</result>  
 </action>  
-</package> 
+ 
 
-<package name="login" extends="struts-default">  
+
 <action name="studentloginprocess" class="com.bean.StudentLogin">  
 <result name="success">student-loginsuccess.jsp</result>  
 <result name="error" >student-loginerror.jsp</result>  
@@ -36,11 +36,10 @@ Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <result name="success" >adminLogout.jsp</result>  
 </action>
 
-
-
-
-
+<action name="upload" class="com.bean.MarksAction">  
+<result name="success">uploadsuccess.jsp</result>  
+<result name="error">uploaderror.jsp</result>
+ </action>  
 
 </package>  
-
 </struts>      

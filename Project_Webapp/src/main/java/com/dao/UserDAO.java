@@ -6,11 +6,32 @@ public class UserDAO {
 	public static Connection getConnection(){  
 	    Connection con=null;  
 	    try{  
-	        Class.forName("com.mysql.jdbc.Driver");  
+	        Class.forName("com.mysql.cj.jdbc.Driver");  
 	        con=DriverManager.getConnection("jdbc:mysql://localhost/myportal","root","1234");  
 	    }catch(Exception e){System.out.println(e);}  
 	    return con;  
 	}  
+	
+	public static int upload(MarksAction u)
+	{
+		int status=0;
+		
+		try
+		{
+			Connection con=getConnection();  
+			
+	        PreparedStatement ps=con.prepareStatement("insert into student_marks(SubjectName, Marks, Attendance) values(?,?,?)"); 
+	       
+	        ps.setString(1,u.getSubjectName());  
+			ps.setFloat(2,Float.parseFloat(u.getMarks()));
+			ps.setString(3,u.getAttendance()); 
+			status=ps.executeUpdate();
+			
+
+			
+		}catch(Exception e) {System.out.println(e);}
+		return status;
+	}
 	public static int save(User u){  
 	    int status=0;  
 	    try{  
