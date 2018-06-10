@@ -12,15 +12,14 @@ body {background-color: lightcyan;}
 <body>
 <%@page import="com.dao.UserDAO,com.bean.User"%>  
  <%  
-String ID=request.getParameter("ID");  
+String ID=request.getParameter("ID"); // id abstracted. 
 User u=UserDAO.getRecordById(Integer.parseInt(ID));  
 %>  
- 
- 
+
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <h1>Edit Form</h1>  
-<form action="editStudent.jsp" method="post">  
+<form action="edit" method="post">  
 <input type="hidden" name="ID" value="<%=u.getID() %>"/>  
 <table>  
 <tr><td>FirstName:</td><td>  

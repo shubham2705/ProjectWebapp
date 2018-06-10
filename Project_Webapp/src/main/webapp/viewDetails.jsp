@@ -26,7 +26,7 @@ request.setAttribute("list",list);
 <c:forEach items="${list}" var="u">  
 <tr><td>${u.getID()}</td><td>${u.getFirstName()}</td><td>${u.getLastName()}</td>  
 <td>${u.getCountry()}</td><td>${u.getEmailId()}</td><td>${u.getPassword()}</td>  
-<td><a href="StudentEdit.jsp?ID=${u.getID()}">Edit</a></td>  
+<td><a href="StudentEdit.jsp?ID=${u.getID()}">Edit</a></td>   <!-- we got the id in request object -->
 <td><a href="StudentDelete.jsp?ID=${u.getID()}">Delete</a></td>
 <td><a href="UploadMarks.jsp?ID=${u.getID()}">Upload</a></td></tr>
   

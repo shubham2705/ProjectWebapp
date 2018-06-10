@@ -42,15 +42,19 @@ public class UserDAO {
 			ps.setString(3,u.getCountry());  
 			ps.setString(4,u.getEmailId());  
 			ps.setString(5,u.getPassword());  
+			status=ps.executeUpdate();
 	    }catch(Exception e){System.out.println(e);}  
 	    return status;  
 	}  
 	public static int update(User u){  
 	    int status=0;  
 	    try{  
-	        Connection con=getConnection();  
+	        Connection con=getConnection(); 
+	        System.out.println(u.getID());
+	       
 	        PreparedStatement ps=con.prepareStatement(  
-	"update student_register set FirstName=?,LastName=?,Country=?,EmailId=?,Password=? where ID=?");  
+	"update student_register set FirstName=?,LastName=?,Country=?,EmailId=?,Password=? where ID=?"); 
+	        
 	        ps.setString(1,u.getFirstName());  
 			ps.setString(2,u.getLastName());  
 			ps.setString(3,u.getCountry());  
