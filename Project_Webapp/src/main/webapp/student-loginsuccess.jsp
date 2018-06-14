@@ -10,11 +10,17 @@ body {background-color: lightcyan;}
 </style>
 </head>
 <body>
+<%@page import="com.dao.UserDAO,com.bean.User,java.util.*"%>
+
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h4><s:property value="FirstName"/> ,You have successfully logged in!!</h4>
+<%String name=(String)request.getAttribute("FirstName");
+session.setAttribute("Name", name);
+%>
+
 <p align="center">
 <a href="studentLogout.jsp">Logout</a>  
-<a href="StudentDetails.jsp">View Details</a>
-<a href="StudentEdit.jsp">Edit Details</a></p>
+<a href="StudentDetails.jsp?name">ViewDetails</a>
+
 </body>
 </html>

@@ -116,5 +116,30 @@ public class UserDAO {
 	        }  
 	    }catch(Exception e){System.out.println(e);}  
 	    return u;  
-	}  
+	}
+	
+	public static User getRecordByName(String FirstName){  
+	    User u=null;  
+	    try{  
+	        Connection con=getConnection();
+	        
+	        PreparedStatement ps=con.prepareStatement("select * from student_register where FirstName=?");  
+	        ps.setString(1,FirstName);  
+	        ResultSet rs=ps.executeQuery();  
+	        while(rs.next()){  
+	            u=new User();  
+	            u.setID(rs.getInt("ID"));  
+	            u.setFirstName(rs.getString("FirstName")); 
+	            u.setLastName(rs.getString("LastName"));
+	            u.setCountry(rs.getString("Country"));  
+	            u.setPassword(rs.getString("Password"));  
+	            u.setEmailId(rs.getString("EmailId"));  
+	           
+	           
+	        }  
+	    }catch(Exception e){System.out.println(e);}  
+	    return u;  
+	}
+	
+	
 }

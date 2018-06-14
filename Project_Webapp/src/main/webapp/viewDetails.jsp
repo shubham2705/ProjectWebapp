@@ -18,6 +18,7 @@ body {background-color: lightcyan;}
 <%  
 List<User> list=UserDAO.getAllRecords();  
 request.setAttribute("list",list);  
+
 %>  
   
 <table border="1" width="90%">  
