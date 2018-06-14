@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Form</title>
+<title>Update your details</title>
 <style>
 body {background-color: lightcyan;}
 </style>
@@ -12,14 +12,14 @@ body {background-color: lightcyan;}
 <body>
 <%@page import="com.dao.UserDAO,com.bean.User"%>  
  <%  
-String ID=request.getParameter("ID"); // id abstracted. 
-User u=UserDAO.getRecordById(Integer.parseInt(ID));  
-%>  
+int Id=(Integer)session.getAttribute("Id");  // not getting ID value
+User u=UserDAO.getRecordById(Id); 
+%>
 
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
 <h1>Edit Form</h1>  
-<form action="edit" method="post">  
+<form action="update" method="post">  
 <input type="hidden" name="ID" value="<%=u.getID() %>"/>  
 <table>  
 <tr><td>FirstName:</td><td>  
@@ -44,9 +44,10 @@ User u=UserDAO.getRecordById(Integer.parseInt(ID));
 <tr><td>Password:</td><td> 
 <input type="password" name="Password" value="<%= u.getPassword()%>"/></td></tr>  
 
-<tr><td colspan="2"><input type="submit" value="Edit User"/></td></tr>  
+<tr><td colspan="2"><input type="submit" value="Update User"/></td></tr>  
 </table>  
 </form>  
   
+
 </body>
 </html>

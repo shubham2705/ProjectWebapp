@@ -42,15 +42,19 @@ public class UserDAO {
 			ps.setString(3,u.getCountry());  
 			ps.setString(4,u.getEmailId());  
 			ps.setString(5,u.getPassword());  
+			status=ps.executeUpdate();
 	    }catch(Exception e){System.out.println(e);}  
 	    return status;  
 	}  
 	public static int update(User u){  
 	    int status=0;  
 	    try{  
-	        Connection con=getConnection();  
+	        Connection con=getConnection(); 
+	        System.out.println(u.getID());
+	       
 	        PreparedStatement ps=con.prepareStatement(  
-	"update student_register set FirstName=?,LastName=?,Country=?,EmailId=?,Password=? where ID=?");  
+	"update student_register set FirstName=?,LastName=?,Country=?,EmailId=?,Password=? where ID=?"); 
+	        
 	        ps.setString(1,u.getFirstName());  
 			ps.setString(2,u.getLastName());  
 			ps.setString(3,u.getCountry());  
@@ -112,5 +116,30 @@ public class UserDAO {
 	        }  
 	    }catch(Exception e){System.out.println(e);}  
 	    return u;  
-	}  
+	}
+	
+	public static User getRecordByName(String FirstName){  
+	    User u=null;  
+	    try{  
+	        Connection con=getConnection();
+	        
+	        PreparedStatement ps=con.prepareStatement("select * from student_register where FirstName=?");  
+	        ps.setString(1,FirstName);  
+	        ResultSet rs=ps.executeQuery();  
+	        while(rs.next()){  
+	            u=new User();  
+	            u.setID(rs.getInt("ID"));  
+	            u.setFirstName(rs.getString("FirstName")); 
+	            u.setLastName(rs.getString("LastName"));
+	            u.setCountry(rs.getString("Country"));  
+	            u.setPassword(rs.getString("Password"));  
+	            u.setEmailId(rs.getString("EmailId"));  
+	           
+	           
+	        }  
+	    }catch(Exception e){System.out.println(e);}  
+	    return u;  
+	}
+	
+	
 }

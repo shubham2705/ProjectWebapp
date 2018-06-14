@@ -41,5 +41,15 @@ Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <result name="error">uploaderror.jsp</result>
  </action>  
 
+<action name="edit" class="com.bean.User" method="execute">  
+<result name="success">updatesuccess.jsp</result>  
+<result name="error">updateerror.jsp</result>
+</action>
+
+<action name="update" class="com.bean.User" method="execute">  
+<result name="success">Updated.jsp</result>  
+<result name="error">Failed.jsp</result>
+ </action>  
+
 </package>  
 </struts>      

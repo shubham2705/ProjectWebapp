@@ -4,25 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Edited</title>
+<title>Detalis updated</title>
 <style>
 body {background-color: lightcyan;}
 </style>
 </head>
 <body>
-<h3>displayed</h3>
-<%@page import="com.dao.UserDAO"%>  
-<jsp:useBean id="u" class="com.bean.User" scope="application"></jsp:useBean>  
-<jsp:setProperty property="*" name="u"/>  
+<h4 align="center">Details successfully updated</h4>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<% 
-System.out.println(u.getFirstName());
-int i=UserDAO.update(u);
-
-if(i>0)
-{
-	response.sendRedirect("viewDetails.jsp");
-}
-%>
+<s:include value="index.jsp"></s:include>
 </body>
 </html>

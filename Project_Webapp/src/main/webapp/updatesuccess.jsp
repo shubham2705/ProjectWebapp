@@ -4,18 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Logged In</title>
+<title>Details Updated</title>
 <style>
 body {background-color: lightcyan;}
 </style>
 </head>
 <body>
-<%@ taglib uri="/struts-tags" prefix="s" %>
-<h4><s:property value="FirstName"/>,You have successfully logged in!!</h4>
-<p align="center">
-<a href="adminLogout.jsp">Logout</a>  
-<a href="viewDetails.jsp">ViewStudent</a>
-
-
+<% response.sendRedirect("viewDetails.jsp"); %>
 </body>
 </html>
